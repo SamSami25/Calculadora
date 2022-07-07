@@ -13,7 +13,6 @@ Principal::~Principal()
     delete ui;
 }
 
-
 void Principal::on_cmdCalcular_released()
 {
     calcular();
@@ -31,22 +30,24 @@ void Principal::calcular()
 
     double resultado = 0.0;
 
-            switch (ui->inOperacion->currentIndex()){
-            case 0:
-                resultado = numero1 + numero2;
-            break;
-            case 1:
-                resultado = numero1 - numero2;
-            break;
-            case 2:
-                resultado = numero1 * numero2;
-            break;
-            case 3:
-                resultado = numero1 / numero2;
-            break;
-            default:
-            break;
-}
-            QMessageBox::information(this,"Resultado","El resultado es: " + QString::number(resultado));
+    switch (ui->inOperacion->currentIndex()){
+    case 0:
+        resultado = numero1 + numero2;
+        break;
+    case 1:
+        resultado = numero1 - numero2;
+        break;
+    case 2:
+        resultado = numero1 * numero2;
+        break;
+    case 3:
+        resultado = numero1 / numero2;
+        break;
+    default:
+        break;
+    }
+    QMessageBox::information(this,
+                             tr("Resultado"),
+                             tr("El resultado es: %1").arg(resultado));
 }
 
